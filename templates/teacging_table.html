@@ -1,0 +1,60 @@
+{if is_admin()}
+<form id="frm-approve" action="" method="post">
+{/if}
+  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="approve">
+    <thead>
+      <tr>
+        {if is_admin()}
+        <th></th>
+        {/if}
+        <th>#</th>
+        {if is_admin()}
+        <th>教師 ID</th>
+        {/if}
+        <th>名稱</th>
+        <th>作者</th>
+        <th>出處</th>
+        <th>分類</th>
+        <th>日期</th>
+        <th>關鍵字</th>
+        <th>已審核</th>
+      </tr>
+    </thead>
+    <tbody>
+      {foreach from=$works item=w key=i}
+      <tr data-id="{$w->id}">
+        {if is_admin()}
+        <td></td>
+        {/if}
+        <td>{$i + 1}</td>
+        {if is_admin()}
+        <td>{$w->userId}</td>
+        {/if}
+        <td>{$w->title}</td>
+        <td>{$w->author}</td>
+        <td>{$w->publication}</td>
+        <td>{$w->category}</td>
+        <td>{$w->date}</td>
+        <td>{$w->keywords}</td>
+        <td>
+          {if $w->status == 'APPROVED'}
+          <i class="glyphicon glyphicon-ok"></i>
+          {/if}
+        </td>
+      </tr>
+      {/foreach}
+    </tbody>
+  </table>
+  
+  {if is_admin()}
+  <button type="submit" class="btn btn-success" name="approve" value="true">
+    <i class="glyphicon glyphicon-check"></i>
+    審核
+  </button>
+
+  <a href="javascript:location.href='download_excel.php{if isset($smarty.get.type)}?type={$smarty.get.type}{/if}'" class="btn btn-info">
+    <i class="glyphicon glyphicon-export"></i>
+    匯出 Excel
+  </a>
+</form>
+  {/if}

@@ -1,0 +1,162 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="./">
+        <img src="images/eece.jpg"> 教師履歷系統
+      </a>
+    </div>
+    {if isset($smarty.session.usr_id)}
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav" data-sm-options="{ showTimeout:50, hideTimeout:50 }">
+        <li>
+          <a href="#">研究
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="research.php?type=journal">期刊論文</a>
+            </li>
+            <li>
+              <a href="research.php?type=conference">研討會論文</a>
+            </li>
+            <li>
+              <a href="research.php?type=project">各項計畫</a>
+            </li>
+            <li>
+              <a href="research.php?type=other">其他著作</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">教學
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">課程資料
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="other.php?table=教學_鐘點">教師鐘點統計</a>
+                </li>
+                <li>
+                  <a href="other.php?table=教學_開課">歷年開課資料</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">指導學生
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="other.php?table=教學_論文">論文指導</a>
+                </li>
+                <li>
+                  <a href="other.php?table=教學_指導">專題指導</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">教學檔案
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="other.php?table=教學_教材">教學資料</a>
+                </li>
+                <li>
+                  <a href="other.php?table=教學_專著">教學專著</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="other.php?table=教學_計畫">教學計劃</a>
+            </li>
+            <li>
+              <a href="#other.php?table=教學_研習">教學研習</a>
+            </li>
+            <li>
+              <a href="#">教學輔導與其他貢獻
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="other.php?table=教學_輔導">教學輔導</a>
+                </li>
+                <li>
+                  <a href="other.php?table=教學_其他">其他教學貢獻</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">服務
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="other.php?table=服務_兼任">兼任行政職務</a>
+            </li>
+            <li>
+              <a href="other.php?table=服務_委員會">參與校院系委員會</a>
+            </li>
+            <li>
+              <a href="other.php?table=服務_招生">參與招生工作</a>
+            </li>
+            <li>
+              <a href="other.php?table=服務_推廣計畫">推廣訓練計畫</a>
+            </li>
+            <li>
+              <a href="other.php?table=服務_推廣課程">推廣訓練課程</a>
+            </li>
+            <li>
+              <a href="other.php?table=服務_推廣活動">推廣輔導活動</a>
+            </li>
+            <li>
+              <a href="#">專業服務
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">參與專業組織</a>
+                </li>
+                <li>
+                  <a href="#">參與評審工作</a>
+                </li>
+                <li>
+                  <a href="#">媒體推廣活動</a>
+                </li>
+                <li>
+                  <a href="#">其他校內外服務工作</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" data-sm-options="{ showTimeout:80, hideTimeout:80 }">
+        <li>
+          <a href="#">
+            <span class="glyphicon glyphicon-user"></span> {$smarty.session.name} ({$smarty.session.email})
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="signout.php">登出</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    {/if}
+  </div>
+</nav>

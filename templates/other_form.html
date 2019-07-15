@@ -1,0 +1,52 @@
+<form id="createForm" class="form-horizontal" action="" method="post">
+
+  <fieldset>
+
+    {foreach from=$columns item=col key=i}
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="input-{$i}">{$col['column']}</label>
+      <div class="col-md-10">
+        {if $col['type'] === 'date'}
+        <div class="bfh-datepicker" data-format="y-m-d" data-date="today" data-name="{$col['column']}" data-icon="">
+          <input id="input-{$i}">
+        </div>
+        {elseif $col['type'] === 'number'}
+        <input id="input-{$i}" name="{$col['column']}" class="form-control" type="number"{if !empty($col['placeholder'])} placeholder="{$col['placeholder']}"{/if}>
+        {elseif $col['type'] === 'enum'}
+        <select name="{$col['column']}">
+          {if !empty($col['placeholder'])}<option value="" disabled selected>[{$col['placeholder']}]</option>{/if}
+          {foreach from=$col['values'] item=val key=j}
+          <option value="{$val}">{$val}</option>
+          {/foreach}
+        </select>
+        {elseif $col['type'] === 'set'}
+        {foreach from=$col['values'] item=val key=k}
+        <label class="checkbox-inline"><input name="{$col['column']}[]" value="{$val}" type="checkbox">{$val}</label>
+        {/foreach}
+        {else}
+        <input id="input-{$i}" name="{$col['column']}" class="form-control" type="text"{if !empty($col['placeholder'])} placeholder="{$col['placeholder']}"{/if}>
+        {/if}
+      </div>
+    </div>
+    {/foreach}
+
+  </fieldset>
+
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <button name="create" class="btn btn-success" type="submit">
+          <i class="fa fa-save"></i>
+          送出
+        </button>
+        <a href="#" data-toggle="modal" data-target="#importModal" class="btn btn-info">
+          <i class="glyphicon glyphicon-import"></i>
+          Excel 匯入
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {include 'other_modal.html'}
+
+</form>

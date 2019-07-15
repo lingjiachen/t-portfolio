@@ -1,0 +1,26 @@
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="approve">
+    <thead>
+        <tr>
+            <th>No.</th>
+            {foreach from=$columns item=col}
+            <th>{$col['column']}</th>
+            {/foreach}
+        </tr>
+    </thead>
+    <tbody>
+        {foreach from=$rows item=w key=i}
+        <tr data-id="{$w['id']}">
+            <td>{$i + 1}</td>
+            {foreach from=$columns item=col}
+            <td>{$w[$col['column']]}</td>
+            {/foreach}
+        </tr>
+        {/foreach}
+    </tbody>
+</table>
+
+
+<a href="javascript:location.href='download_excel.php{if isset($smarty.get.type)}?type={$smarty.get.type}{/if}'" class="btn btn-info">
+    <i class="glyphicon glyphicon-export"></i>
+    匯出 Excel
+</a>

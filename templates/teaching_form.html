@@ -1,0 +1,74 @@
+<form id="createForm" class="form-horizontal" action="" method="post">
+
+  <fieldset>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="text-field">名稱</label>
+      <div class="col-md-10">
+        <input name="title" class="form-control" type="text" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="text-field">作者</label>
+      <div class="col-md-10">
+        <input name="author" class="form-control" placeholder="建議格式：Chia-Wen Chang and C.W. Tao" type="text" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="text-field">出處</label>
+      <div class="col-md-10">
+        <input name="publication" class="form-control" placeholder="建議格式：IEEE Transactions on Cybernetics" type="text" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label">分類</label>
+      <div class="col-md-10">
+        <label class="checkbox-inline">
+          <input name="category[]" value="SCI" type="checkbox">SCI</label>
+        <label class="checkbox-inline">
+          <input name="category[]" value="SSCI" type="checkbox">SSCI</label>
+        <label class="checkbox-inline">
+          <input name="category[]" value="TSSCI" type="checkbox">TSSCI</label>
+        <label class="checkbox-inline">其他
+          <input name="category[]" type="text">
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label">發表日期</label>
+      <div class="col-md-10">
+        <div class="bfh-datepicker" data-format="y-m-d" data-date="today" data-name="date" data-icon=""></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="text-field">關鍵字</label>
+      <div class="col-md-10">
+        <input name="keywords" class="form-control" type="text">
+      </div>
+    </div>
+
+  </fieldset>
+
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <button name="create" class="btn btn-success" type="submit">
+          <i class="fa fa-save"></i>
+          送出
+        </button>
+        <a href="#" data-toggle="modal" data-target="#importModal" class="btn btn-info">
+          <i class="glyphicon glyphicon-import"></i>
+          Excel 匯入
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {include 'research_modal.html'}
+
+</form>
